@@ -49,11 +49,7 @@ class RefreshWrapper extends StatelessWidget {
         future: ProductsStore.refreshProducts(context, context.mounted),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
-            if (snapshot.hasError) {
-              return const DatabaseWrapper();
-            }
-
-            return const CartScreen();
+            return const DatabaseWrapper();
           }
           else {
             return const CircularProgressIndicator();
